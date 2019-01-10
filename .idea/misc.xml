@@ -2,7 +2,9 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/freemarker" />
+    <file type="web" url="file://$PROJECT_DIR$/xc-govern-center" />
     <file type="web" url="file://$PROJECT_DIR$/xc-service-manage-cms" />
+    <file type="web" url="file://$PROJECT_DIR$/xc-service-manage-course" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
@@ -20,6 +22,8 @@
         <option value="$PROJECT_DIR$/xc-service-manage-cms-client/pom.xml" />
         <option value="$PROJECT_DIR$/xc-service-manage-course/pom.xml" />
         <option value="$PROJECT_DIR$/xc-service-base-filesystem/pom.xml" />
+        <option value="$PROJECT_DIR$/xcgoverncenter/pom.xml" />
+        <option value="$PROJECT_DIR$/xc-govern-center/pom.xml" />
       </list>
     </option>
   </component>
