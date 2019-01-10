@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xuecheng.manage_course.dao.CategoryMapper">
+    <resultMap id="categoryMap" type="com.xuecheng.framework.domain.course.ext.CategoryNode">
+        <id column="oneid" property="id"/>
+        <result column="onename" property="name"/>
+        <result column="onelabel" property="label"/>
+        <result column="oneparentid" property="parentid"/>
+        <result column="oneisshow" property="isshow"/>
+        <result column="oneorderby" property="orderby"/>
+        <result column="oneisleaf" property="isleaf"/>
+        <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.CategoryNode">
+            <id column="twoid" property="id"/>
+            <result column="twoname" property="name"/>
+            <result column="twolabel" property="label"/>
+            <result column="twoparentid" property="parentid"/>
+            <result column="twoisshow" property="isshow"/>
+            <result column="twoorderby" property="orderby"/>
+            <result column="twoisleaf" property="isleaf"/>
+            <collection property="children" ofType="com.xuecheng.framework.domain.course.ext.CategoryNode">
+                <id column="threeid" property="id"/>
+                <result column="threename" property="name"/>
+                <result column="threelabel" property="label"/>
+                <result column="threeparentid" property="parentid"/>
+                <result column="threeisshow" property="isshow"/>
+                <result column="threeorderby" property="orderby"/>
+                <result column="threeisleaf" property="isleaf"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="selectList" resultMap="categoryMap">
+      select
+      a.id oneid,
+      a.name onename,
+      a.label onelabel,
+      a.parentid oneparentid,
+      a.isshow oneisshow,
+      a.orderby oneorderby,
+      a.isleaf oneisleaf,
+
+      b.id twoid,
+      b.name twoname,
+      b.label twolabel,
+      b.parentid twoparentid,
+      b.isshow twoisshow,
+      b.orderby twoorderby,
+      b.isleaf twoisleaf,
+
+      c.id threeid,
+      c.name threename,
+      c.label threelabel,
+      c.parentid threeparentid,
+      c.isshow threeisshow,
+      c.orderby threeorderby,
+      c.isleaf threeisleaf
+
+      from
+      category a
+        left join category b
+          on a.id=b.parentid
+        left join category c
+          on b.id=c.parentid
+      where a.parentid="0"
+      order by a.orderby,
+      b.orderby,c.orderby
+    </select>
+</mapper>
