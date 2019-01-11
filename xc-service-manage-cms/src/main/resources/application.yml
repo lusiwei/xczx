@@ -18,8 +18,8 @@ eureka:
   client:
     register-with-eureka: true #服务注册开关
     fetch-registry: true #服务发现开关
-    serviceUrl: #Eureka 客户端与服务端进行交互的地址，多个中间用逗号分割
-     defaultZone: http://localhost:50101/eureka/,http://localhost:50102/eureka/
+    service-url: #Eureka 客户端与服务端进行交互的地址，多个中间用逗号分割
+      defaultZone: http://eureka01:50101/eureka/,http://eureka02:50102/eureka/
   instance:
     prefer-ip-address: true # 将自己的ip地址注册到Eureka服务中
     ip-address: ${IP_ADDRESS:127.0.0.1}
